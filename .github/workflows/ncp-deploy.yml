@@ -19,8 +19,9 @@ jobs:
     - name: 🛠️ 프론트엔드(Client) 빌드
       run: |
         cd client
-        npm install
-        npm run build
+        npm ci
+        chmod +x node_modules/.bin/react-scripts
+        CI=false npm run build
 
     - name: 🚀 빌드 파일 및 서버 코드 NCP로 전송 (SCP)
       uses: appleboy/scp-action@master
