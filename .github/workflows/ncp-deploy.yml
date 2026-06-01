@@ -30,7 +30,7 @@ jobs:
         username: ${{ secrets.PUBLIC_USER }}
         key: ${{ secrets.PUBLIC_SSH_KEY }}
         port: 22
-        source: "client/build/*,server/*"
+        source: "client/build,server,nginx"
         target: "${{ secrets.PRIVATE_APP_DIR }}"
         strip_components: 0
 
@@ -58,3 +58,9 @@ jobs:
           npm install --production
           pm2 reload ecosystem.config.js --env production || pm2 start ecosystem.config.js --env production
           pm2 save
+
+          # Nginx 설정 적용
+          sudo cp ${{ secrets.PRIVATE_APP_DIR }}/nginx/jinsang.conf /etc/nginx/sites-available/jinsang
+          sudo ln -sf /etc/nginx/sites-available/jinsang /etc/nginx/sites-enabled/jinsang
+          sudo rm -f /etc/nginx/sites-enabled/default
+          sudo nginx -t && sudo systemctl reload nginx
