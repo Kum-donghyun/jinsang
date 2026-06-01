@@ -42,6 +42,19 @@ jobs:
         key: ${{ secrets.PUBLIC_SSH_KEY }}
         port: 22
         script: |
+          # Node.js 설치 여부 확인 후 없으면 자동 설치
+          if ! command -v node &> /dev/null; then
+            curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+            sudo apt-get install -y nodejs
+          fi
+
+          # PM2 설치 여부 확인 후 없으면 자동 설치
+          if ! command -v pm2 &> /dev/null; then
+            sudo npm install -g pm2
+          fi
+
+          # 앱 디렉터리로 이동 후 패키지 설치 및 PM2 재시작
           cd ${{ secrets.PRIVATE_APP_DIR }}/server
           npm install --production
-          pm2 reload ecosystem.config.js || pm2 start ecosystem.config.js
+          pm2 reload ecosystem.config.js --env production || pm2 start ecosystem.config.js --env production
+          pm2 save
