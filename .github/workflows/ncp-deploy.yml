@@ -19,7 +19,7 @@ jobs:
     - name: 🛠️ 프론트엔드(Client) 빌드
       run: |
         cd client
-        npm ci
+        npm install --legacy-peer-deps
         chmod +x node_modules/.bin/react-scripts
         CI=false npm run build
 
