@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ===== 진상도감 글로벌 스타일 ===== */
 :root {
   --primary: #2C5282;

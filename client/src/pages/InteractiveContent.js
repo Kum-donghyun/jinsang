@@ -6,6 +6,7 @@ import SalesInteractive from './SalesInteractive';
 import CsInteractive from './CsInteractive';
 import RelationshipInteractive from './RelationshipInteractive';
 import ManhwaHub from './ManhwaHub';
+import ShortformPage from './ShortformPage';
 import './InteractiveContent.css';
 
 export const INTERACTIVE_ITEMS = [
@@ -23,15 +24,15 @@ export const INTERACTIVE_ITEMS = [
   },
   {
     slug: 'work',
-    name: '직장 진상',
-    emoji: '💼',
-    subtitle: '팀장이 또 이랬어요...',
-    description: '직장 내 갑질, 억울한 상황. 이 상황에서 누가 진상인지 직접 판결해 보세요!',
-    bgGradient: 'linear-gradient(135deg, #E8F0FF 0%, #F0F4FF 100%)',
-    accentColor: '#4A90E2',
-    borderColor: '#C6D8FF',
-    vsA: '😡',
-    vsB: '🙄',
+    name: '영상으로 보는 진상',
+    emoji: '🎬',
+    subtitle: '역대급 진상 사연, 영상으로 만나다',
+    description: '매주 선정된 역대급 진상 사연을 생생한 숏폼 영상으로 만나보세요! 댓글로 여러분의 생각을 남겨주세요.',
+    bgGradient: 'linear-gradient(135deg, #FFF0F0 0%, #FFF5F0 100%)',
+    accentColor: '#E53E3E',
+    borderColor: '#FED7D7',
+    vsA: '🎥',
+    vsB: '😤',
   },
   {
     slug: 'drive',
@@ -93,6 +94,7 @@ export default function InteractiveContent() {
   if (slug === 'cs')        return <CsInteractive />;
   if (slug === 'drive')     return <ManhwaHub />;
   if (slug === 'relationship') return <RelationshipInteractive />;
+  if (slug === 'work')         return <ShortformPage />;
 
   const item = INTERACTIVE_ITEMS.find((i) => i.slug === slug);
 
