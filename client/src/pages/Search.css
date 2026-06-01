@@ -1,0 +1,81 @@
+/* ===== 검색 페이지 스타일 ===== */
+.search-page {
+  padding: 16px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gray-100);
+  border-radius: 24px;
+  padding: 4px 4px 4px 16px;
+  margin-bottom: 20px;
+}
+
+.search-icon {
+  color: var(--gray-400);
+  font-size: 16px;
+}
+
+.search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 10px 0;
+}
+
+.search-btn {
+  padding: 10px 20px;
+  background: var(--primary);
+  color: white;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.result-count {
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-bottom: 12px;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-item {
+  display: block;
+  padding: 14px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  transition: all 0.15s;
+}
+
+.search-item:hover {
+  border-color: var(--primary);
+}
+
+.search-item h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 6px 0;
+  color: var(--gray-800);
+}
+
+.search-excerpt {
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-bottom: 8px;
+}
+
+.search-meta {
+  display: flex;
+  gap: 10px;
+  font-size: 11px;
+  color: var(--gray-400);
+}

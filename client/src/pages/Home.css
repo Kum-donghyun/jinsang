@@ -1,0 +1,268 @@
+/* ===== 홈 대시보드 스타일 ===== */
+.home {
+  padding-bottom: 20px;
+}
+
+/* ===== 인터랙티브 배너 슬라이더 ===== */
+.interactive-banner {
+  margin: 16px;
+  border-radius: var(--radius);
+  padding: 20px;
+  cursor: pointer;
+  border: 1px solid;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.32s ease;
+}
+
+/* 슬라이드 애니메이션 */
+.interactive-banner.slide-in {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.interactive-banner.slide-out-left {
+  transform: translateX(-60px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.interactive-banner.slide-out-right {
+  transform: translateX(60px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 인터랙티브 태그 */
+.banner-tag {
+  display: inline-block;
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner-left h2 {
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0 0 4px;
+}
+
+.banner-subtitle {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.4;
+}
+
+.banner-counter {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.banner-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.vs-characters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.character-a, .character-b {
+  font-size: 36px;
+}
+
+.vs-text {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.vote-cta-btn {
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.vote-cta-btn:hover {
+  opacity: 0.85;
+}
+
+.banner-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dot.active {
+  border-radius: 7px;
+  width: 32px;
+}
+
+/* 섹션 */
+.section {
+  padding: 0 16px;
+  margin-bottom: 24px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 12px;
+}
+
+/* 카테고리 리스트 */
+.category-list {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.category-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--gray-100);
+  transition: background 0.15s;
+}
+
+.category-row:last-child {
+  border-bottom: none;
+}
+
+.category-row:hover {
+  background: var(--gray-50);
+}
+
+.category-row-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cat-emoji {
+  font-size: 16px;
+}
+
+.cat-name {
+  font-size: 14px;
+  color: var(--gray-700);
+}
+
+.category-row-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chevron {
+  font-size: 12px;
+  color: var(--gray-400);
+}
+
+/* 게시글 리스트 */
+.post-list {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.post-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--gray-100);
+  transition: background 0.15s;
+}
+
+.post-item:last-child {
+  border-bottom: none;
+}
+
+.post-item:hover {
+  background: var(--gray-50);
+}
+
+.post-rank {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--coral);
+  min-width: 24px;
+  text-align: center;
+  padding-top: 2px;
+}
+
+.post-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.post-item-category {
+  font-size: 11px;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 2px;
+  display: inline-block;
+}
+
+.post-item-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.post-item-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--gray-400);
+}

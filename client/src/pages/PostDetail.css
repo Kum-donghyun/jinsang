@@ -1,0 +1,292 @@
+/* ===== 게시글 상세 스타일 ===== */
+.post-detail {
+  padding-bottom: 80px;
+}
+
+.share-btn {
+  color: var(--gray-500);
+  font-size: 16px;
+  padding: 8px;
+}
+
+.post-body {
+  padding: 20px 16px;
+}
+
+.post-author-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.post-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.post-author-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-800);
+}
+
+.post-time {
+  font-size: 12px;
+  color: var(--gray-400);
+}
+
+.post-title {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 16px;
+  color: var(--gray-800);
+}
+
+.post-content {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--gray-700);
+  white-space: pre-wrap;
+  margin-bottom: 20px;
+}
+
+.post-image {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+}
+
+/* 투표 */
+.vote-section {
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.vote-title {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.vote-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vote-btn {
+  flex: 1;
+  padding: 16px 12px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.vote-btn-a {
+  background: white;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.vote-btn-a:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.vote-btn-b {
+  background: white;
+  border: 2px solid var(--coral);
+  color: var(--coral);
+}
+
+.vote-btn-b:hover {
+  background: var(--coral);
+  color: white;
+}
+
+.vote-label {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.vote-result {
+  margin-top: 8px;
+}
+
+.vote-my {
+  text-align: center;
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-top: 10px;
+}
+
+/* 좋아요 & 공유 */
+.post-actions {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-500);
+  background: var(--gray-50);
+  transition: all 0.2s;
+}
+
+.action-btn.liked {
+  color: var(--coral);
+  background: #FFF0F0;
+}
+
+.action-btn:hover {
+  background: var(--gray-200);
+}
+
+/* 댓글 */
+.comments-section {
+  padding: 20px 16px;
+}
+
+.comments-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.comment-list {
+  margin-bottom: 16px;
+}
+
+.comment-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.comment-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gray-300);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.comment-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-700);
+}
+
+.comment-time {
+  font-size: 11px;
+  color: var(--gray-400);
+}
+
+.comment-delete {
+  margin-left: auto;
+  color: var(--gray-400);
+  padding: 4px;
+}
+
+.comment-content {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--gray-700);
+  padding-left: 36px;
+}
+
+/* 댓글 입력 */
+.comment-input-area {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background: var(--white);
+  border-top: 1px solid var(--gray-200);
+  padding: 10px 16px;
+  z-index: 100;
+}
+
+.comment-input-row {
+  margin-bottom: 6px;
+}
+
+.anon-check {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--gray-500);
+  cursor: pointer;
+}
+
+.anon-check input {
+  accent-color: var(--primary);
+}
+
+.comment-input-box {
+  display: flex;
+  gap: 8px;
+}
+
+.comment-input-box .input-field {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.comment-submit {
+  padding: 10px 18px;
+  background: var(--primary);
+  color: white;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.comment-submit:disabled {
+  opacity: 0.5;
+}

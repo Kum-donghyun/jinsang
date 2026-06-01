@@ -1,0 +1,140 @@
+/* ===== 인터랙티브 콘텐츠 페이지 ===== */
+.ic-page {
+  min-height: 100vh;
+  padding: 0 0 40px;
+}
+
+.ic-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.ic-back-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: var(--gray-700);
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+
+.ic-title {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* 메인 카드 */
+.ic-card {
+  margin: 24px 16px 0;
+  background: white;
+  border-radius: 16px;
+  border: 2px solid;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.ic-vs-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.ic-char {
+  font-size: 52px;
+}
+
+.ic-vs {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.ic-subtitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--gray-800);
+  margin: 0 0 12px;
+}
+
+.ic-desc {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 준비 중 안내 */
+.ic-coming-soon {
+  margin: 24px 16px 0;
+  background: white;
+  border-radius: 16px;
+  padding: 32px 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.ic-gavel {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.ic-coming-soon h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--gray-800);
+  margin: 0 0 10px;
+}
+
+.ic-coming-soon p {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.ic-notify-btn {
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.ic-notify-btn:hover {
+  opacity: 0.85;
+}
+
+.ic-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 16px;
+  color: var(--gray-600);
+}
+
+.ic-not-found button {
+  padding: 10px 20px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 700;
+}

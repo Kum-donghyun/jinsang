@@ -1,0 +1,176 @@
+/* ── Google Font (픽셀체) ── */
+@import url('https://fonts.googleapis.com/css2?family=DungGeunMo&display=swap');
+
+/* ── 전체 래퍼 ─────────────────────────────────────────────── */
+.ri-root {
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  color: #fff;
+  font-family: 'DungGeunMo', 'Courier New', Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px 60px;
+  user-select: none;
+}
+
+/* ── 나가기 버튼 ─────────────────────────────────────────────── */
+.ri-back {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #facc15;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 0;
+  margin-bottom: 12px;
+}
+.ri-back:hover { opacity: 0.7; }
+
+/* ── 컨텐츠 래퍼 ─────────────────────────────────────────────── */
+.ri-wrap {
+  width: 100%;
+  max-width: 460px;
+}
+
+/* ── 픽셀 박스 ─────────────────────────────────────────────── */
+.ri-pixel-box {
+  border: 4px solid #fff;
+  box-shadow: 4px 4px 0px #888;
+  padding: 20px;
+}
+.ri-dark-box  { background-color: #000; }
+.ri-boss-box  { background-color: #2b0000; border-color: #ff4444; box-shadow: 4px 4px 0px #880000; }
+
+/* ── 공통 버튼 ─────────────────────────────────────────────── */
+.ri-btn {
+  display: block;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  border: 4px solid #fff;
+  box-shadow: 4px 4px 0px #555;
+  font-family: inherit;
+  font-size: 15px;
+  text-align: left;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.1s;
+  line-height: 1.5;
+}
+.ri-btn:hover  { background-color: #fff; color: #000; }
+.ri-btn:active { transform: translate(4px, 4px); box-shadow: none; }
+
+.ri-btn-red  { background-color: #7f1d1d; border-color: #fff; font-size: 18px; text-align: center; }
+.ri-btn-red:hover { background-color: #fff; color: #7f1d1d; }
+
+.ri-btn-blue { background-color: #1d4ed8; border-color: #bfdbfe; }
+.ri-btn-blue:hover { background-color: #fff; color: #1d4ed8; }
+
+.ri-btn-answer { font-size: 13px; }
+.ri-btn-sm { width: auto; font-size: 12px; padding: 8px 14px; align-self: center; }
+
+/* ── 인트로 ─────────────────────────────────────────────────── */
+.ri-center { display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+
+.ri-subtitle-yellow { color: #facc15; font-size: 16px; margin: 0; }
+.ri-main-title {
+  font-size: 36px;
+  font-weight: 900;
+  color: #ef4444;
+  line-height: 1.4;
+  text-shadow: 2px 2px 0px #fff;
+  margin: 0;
+}
+.ri-intro-text { font-size: 13px; line-height: 2; margin: 0; }
+.ri-hint { color: #9ca3af; font-size: 12px; margin: 0; }
+
+/* ── 깜빡임 ─────────────────────────────────────────────────── */
+.ri-blink { animation: ri-blinker 1.5s linear infinite; }
+@keyframes ri-blinker { 50% { opacity: 0; } }
+
+/* ── 퀴즈 ─────────────────────────────────────────────────── */
+.ri-quiz-wrap { display: flex; flex-direction: column; gap: 16px; }
+
+.ri-stage-row { display: flex; justify-content: space-between; align-items: center; }
+.ri-stage-text { color: #facc15; font-size: 14px; }
+.ri-hp-label  { color: #9ca3af; font-size: 11px; }
+
+.ri-hp-track  { width: 100%; height: 20px; background: #333; border: 2px solid #fff; }
+.ri-hp-fill   { height: 100%; background: #39ff14; transition: width 0.3s ease-in-out; }
+
+.ri-q-box { min-height: 130px; display: flex; align-items: center; justify-content: center; }
+.ri-q-text { font-size: 15px; text-align: center; line-height: 1.7; margin: 0; }
+.ri-answers { display: flex; flex-direction: column; gap: 10px; }
+
+/* ── 로딩 ─────────────────────────────────────────────────── */
+.ri-loading { min-height: 300px; justify-content: center; }
+.ri-load-box { width: 80%; }
+.ri-typewriter {
+  font-size: 12px;
+  line-height: 2;
+  white-space: pre-wrap;
+  overflow: hidden;
+  border-right: 2px solid orange;
+  animation: ri-typing 2s steps(60, end), ri-caret 0.75s step-end infinite;
+  margin: 0;
+}
+@keyframes ri-typing { from { max-height: 0; } to { max-height: 200px; } }
+@keyframes ri-caret  { from, to { border-color: transparent; } 50% { border-color: orange; } }
+
+/* ── 결과 ─────────────────────────────────────────────────── */
+.ri-result-wrap { display: flex; flex-direction: column; gap: 16px; padding-bottom: 20px; }
+
+.ri-result-header { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.ri-result-label { color: #9ca3af; font-size: 12px; }
+.ri-result-name  { font-size: 28px; font-weight: 900; color: #ef4444; margin: 0; }
+.ri-type-badge   { background: #fff; color: #000; padding: 2px 10px; font-size: 12px; }
+
+.ri-result-card { display: flex; flex-direction: column; gap: 12px; }
+
+.ri-quote-box   { background: #000; border: 1px solid #374151; padding: 12px; }
+.ri-quote-text  { color: #fde047; font-size: 13px; margin: 0; line-height: 1.6; }
+.ri-result-desc { font-size: 13px; line-height: 1.7; margin: 0; }
+
+.ri-solution       { border-top: 1px solid #4b5563; padding-top: 12px; }
+.ri-solution-title { color: #4ade80; font-size: 13px; margin: 0 0 8px; }
+.ri-solution-text  { color: #d1d5db; font-size: 12px; line-height: 1.7; margin: 0; }
+
+.ri-result-btns { display: flex; flex-direction: column; gap: 10px; }
+
+/* ── 도감 ─────────────────────────────────────────────────── */
+.ri-enc-wrap { display: flex; flex-direction: column; gap: 12px; padding-bottom: 20px; }
+
+.ri-enc-header {
+  position: sticky; top: 0;
+  background: #1a1a1a;
+  padding: 12px 0;
+  border-bottom: 2px solid #fff;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  z-index: 10;
+}
+
+.ri-sec-title { font-size: 16px; margin: 8px 0 4px; }
+.ri-red   { color: #ef4444; }
+.ri-green { color: #4ade80; }
+
+.ri-enc-card { position: relative; }
+.ri-enc-top  { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.ri-enc-name { font-size: 14px; color: #fff; }
+.ri-enc-ttl  { font-size: 11px; color: #fde047; margin: 0 0 4px; }
+.ri-enc-quote{ font-size: 11px; color: #9ca3af; margin: 0; line-height: 1.5; }
+
+.ri-enc-key    { font-size: 10px; padding: 2px 6px; }
+.ri-red-bg     { background: #ef4444; color: #fff; }
+.ri-gray-bg    { background: #374151; color: #fff; }
+
+.ri-my-type { border-color: #facc15 !important; box-shadow: 4px 4px 0px #ca9a04 !important; }
+.ri-my-badge {
+  position: absolute; top: -12px; right: -8px;
+  background: #facc15; color: #000;
+  padding: 2px 8px; font-size: 10px;
+  animation: ri-blinker 1s linear infinite;
+}
+
+.ri-full-btn { margin-top: 8px; text-align: center; }

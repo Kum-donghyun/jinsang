@@ -1,0 +1,561 @@
+/* ===================================================
+   EducationInteractive — 학부모 진상 체험형 스토리
+   다크 테마, 모바일 앱 사이즈 최적화
+=================================================== */
+
+/* ── 공통 페이지 기반 ── */
+.edu-page {
+  min-height: 100dvh;
+  background-color: #0d0d0e;
+  color: #e5e7eb;
+  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  padding-bottom: 32px;
+}
+
+/* 노이즈 도트 배경 */
+.edu-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.07) 1px, transparent 0),
+    radial-gradient(rgba(255,255,255,0.04) 1px, transparent 0);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.edu-page > * { position: relative; z-index: 1; }
+
+/* 뒤로가기 버튼 (인트로/결과) */
+.edu-back-btn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #e5e7eb;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* ════════════════════════════════
+   INTRO 화면
+════════════════════════════════ */
+.edu-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 24px 40px;
+  text-align: center;
+  gap: 18px;
+  /* 배경 이미지 오버레이 */
+  background:
+    linear-gradient(to top, #0d0d0e 30%, rgba(13,13,14,0.5) 100%),
+    url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800') center/cover no-repeat;
+}
+
+.edu-intro-badge {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #ea580c;
+  text-transform: uppercase;
+}
+
+.edu-intro-title {
+  font-family: 'Nanum Myeongjo', 'Georgia', serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.35;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edu-intro-subtitle {
+  font-size: 20px;
+  color: #ea580c;
+  display: block;
+}
+
+.edu-intro-desc {
+  font-size: 13px;
+  color: #9ca3af;
+  line-height: 1.8;
+  max-width: 320px;
+}
+
+.edu-start-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #c2410c;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 8px 24px rgba(194,65,12,0.35);
+}
+.edu-start-btn:hover { background: #ea580c; transform: translateY(-2px); }
+.edu-btn-icon { font-size: 16px; }
+
+.edu-intro-disclaimer {
+  font-size: 11px;
+  color: #4b5563;
+  max-width: 300px;
+  line-height: 1.6;
+}
+
+/* ════════════════════════════════
+   GAME 화면
+════════════════════════════════ */
+.edu-game {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+/* 헤더 */
+.edu-game-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(13,13,14,0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+}
+
+.edu-back-btn-sm {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+/* 멘탈 게이지 */
+.edu-gauge-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.edu-gauge-label { font-size: 11px; color: #6b7280; white-space: nowrap; }
+.edu-gauge-track {
+  flex: 1;
+  height: 8px;
+  background: #262626;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.edu-gauge-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease, background 0.5s ease;
+}
+.edu-gauge-pulse { animation: gaugePulse 1s infinite; }
+@keyframes gaugePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.edu-gauge-val { font-size: 12px; font-weight: 700; white-space: nowrap; }
+
+/* 스테이지 배지 */
+.edu-stage-badge {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ea580c;
+  text-transform: uppercase;
+  padding: 10px 16px 0;
+}
+
+/* 시나리오 카드 */
+.edu-scenario-card {
+  margin: 8px 12px 0;
+  background: #161618;
+  border: 1px solid #262626;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.edu-scenario-title {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.edu-scenario-desc {
+  font-size: 12.5px;
+  color: #9ca3af;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* 폰 목업 */
+.edu-phone {
+  align-self: center;
+  width: 160px;
+  background: #0a0a0a;
+  border: 1.5px solid #2a2a2a;
+  border-radius: 24px;
+  padding: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  transition: transform 0.1s;
+}
+
+@keyframes phoneShake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+.edu-phone-shake { animation: phoneShake 0.5s ease-in-out; }
+
+.edu-phone-notch {
+  width: 48px;
+  height: 8px;
+  background: #1a1a1a;
+  border-radius: 4px;
+  margin: 0 auto 8px;
+}
+
+.edu-phone-screen {
+  background: #111;
+  border-radius: 16px;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-height: 140px;
+  justify-content: space-between;
+}
+
+.edu-phone-incoming {
+  font-size: 10px;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@keyframes iconPulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.edu-phone-icon-pulse { animation: iconPulse 1.2s infinite; }
+
+.edu-phone-caller {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+
+.edu-phone-status {
+  font-size: 10px;
+  color: #ea580c;
+  text-align: center;
+}
+
+.edu-phone-btns {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.edu-phone-btn-red,
+.edu-phone-btn-green {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #fff;
+}
+.edu-phone-btn-red  { background: #dc2626; }
+.edu-phone-btn-green { background: #16a34a; }
+
+@keyframes btnBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+.edu-btn-bounce { animation: btnBounce 0.8s infinite; }
+
+/* ─ 채팅 스레드 ─ */
+.edu-chat-thread {
+  margin: 10px 12px 0;
+  background: #0a0a0b;
+  border: 1px solid #1f1f1f;
+  border-radius: 14px;
+  padding: 14px 12px;
+  max-height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.edu-chat-thread::-webkit-scrollbar { width: 4px; }
+.edu-chat-thread::-webkit-scrollbar-track { background: transparent; }
+.edu-chat-thread::-webkit-scrollbar-thumb { background: #c2410c; border-radius: 2px; }
+
+.edu-chat-row { display: flex; flex-direction: column; gap: 4px; }
+.edu-chat-left  { align-items: flex-start; }
+.edu-chat-right { align-items: flex-end; }
+
+.edu-chat-time { font-size: 10px; color: #4b5563; }
+
+.edu-chat-bubble {
+  max-width: 85%;
+  padding: 10px 13px;
+  border-radius: 14px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  animation: bubbleFade 0.4s ease forwards;
+}
+@keyframes bubbleFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.edu-bubble-parent {
+  background: rgba(127,29,29,0.35);
+  color: #fecaca;
+  border: 1px solid rgba(153,27,27,0.4);
+  border-top-left-radius: 4px;
+}
+.edu-bubble-teacher {
+  background: #9a3412;
+  color: #fff;
+  border: 1px solid #c2410c;
+  border-top-right-radius: 4px;
+}
+
+/* ─ 선택지 ─ */
+.edu-options {
+  margin: 10px 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edu-option-btn {
+  width: 100%;
+  text-align: left;
+  padding: 13px 14px;
+  background: #161618;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  color: #d1d5db;
+  font-size: 13px;
+  line-height: 1.55;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+.edu-option-btn:hover:not(:disabled) {
+  background: #1f1f21;
+  border-color: rgba(234,88,12,0.5);
+  transform: translateX(3px);
+}
+.edu-option-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.edu-option-num { color: #ea580c; font-weight: 800; margin-right: 6px; }
+
+.edu-next-btn {
+  width: 100%;
+  padding: 14px;
+  background: #c2410c;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+.edu-next-btn:hover { background: #ea580c; }
+
+/* ════════════════════════════════
+   RESULT 화면
+════════════════════════════════ */
+.edu-result {
+  padding: 72px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.edu-result-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #dc2626;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.edu-result-title {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.edu-result-gauge-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #161618;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+.edu-result-gauge-label { font-size: 12px; color: #6b7280; white-space: nowrap; }
+.edu-result-gauge-val { font-size: 14px; font-weight: 800; white-space: nowrap; }
+
+.edu-result-desc {
+  font-size: 13px;
+  color: #9ca3af;
+  line-height: 1.75;
+  text-align: center;
+  background: #161618;
+  border: 1px solid #262626;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+/* 통계 카드 그리드 */
+.edu-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.edu-stat-card {
+  background: #161618;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.edu-stat-tag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #ea580c;
+  text-transform: uppercase;
+}
+
+.edu-stat-num {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.edu-stat-desc {
+  font-size: 12px;
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+/* 사회적 촉구 박스 */
+.edu-appeal-box {
+  background: rgba(22,22,24,0.7);
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.edu-appeal-title {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.edu-appeal-desc {
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.edu-result-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edu-btn-secondary {
+  padding: 12px;
+  background: #262626;
+  color: #d1d5db;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.edu-btn-secondary:hover { background: #333; }
+
+.edu-btn-share {
+  padding: 12px;
+  background: #c2410c;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+.edu-btn-share:hover { background: #ea580c; }

@@ -1,0 +1,217 @@
+/* ── 전체 래퍼 ─────────────────────────────────────────────── */
+.cs-root {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f3efff 0%, #ece3ff 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px 60px;
+  position: relative;
+}
+
+/* ── 뒤로가기 버튼 ─────────────────────────────────────────── */
+.cs-back-btn {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #7c4dff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 0;
+  margin-bottom: 12px;
+}
+.cs-back-btn:hover { opacity: 0.7; }
+
+/* ── 카드 박스 ─────────────────────────────────────────────── */
+.cs-container { width: 100%; max-width: 480px; }
+
+.cs-box {
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(124, 77, 255, 0.15);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ── 배지 ─────────────────────────────────────────────────── */
+.cs-badge {
+  background: #7c4dff;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 5px 14px;
+  border-radius: 100px;
+}
+
+/* ── 타이틀 / 서브 ─────────────────────────────────────────── */
+.cs-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1a1a2e;
+  text-align: center;
+  margin: 0;
+}
+
+.cs-sub {
+  font-size: 15px;
+  color: #555;
+  text-align: center;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cs-sub-small {
+  font-size: 12px;
+  color: #888;
+}
+
+/* ── 캐릭터 이미지 ─────────────────────────────────────────── */
+.cs-img-box {
+  width: 100%;
+  max-height: 260px;
+  overflow: hidden;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9f5ff;
+}
+.cs-img-box img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+}
+
+/* ── 메인 버튼 ─────────────────────────────────────────────── */
+.cs-main-btn {
+  width: 100%;
+  padding: 16px;
+  background: #7c4dff;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.cs-main-btn:hover  { background: #6b3de0; }
+.cs-main-btn:active { transform: scale(0.98); }
+
+/* ── 퀴즈 ─────────────────────────────────────────────────── */
+.cs-question-box {
+  width: 100%;
+  background: #f9f5ff;
+  border-radius: 14px;
+  padding: 20px 18px;
+}
+
+.cs-question-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+}
+
+.cs-answers {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cs-quiz-btn {
+  width: 100%;
+  padding: 14px 16px;
+  background: #fff;
+  border: 2px solid #e0d0ff;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+  line-height: 1.5;
+}
+.cs-quiz-btn:hover {
+  border-color: #7c4dff;
+  background: #f3efff;
+  transform: translateY(-1px);
+}
+.cs-quiz-btn:active { transform: scale(0.99); }
+
+/* ── 로딩 ─────────────────────────────────────────────────── */
+.cs-loading-box { min-height: 200px; justify-content: center; gap: 24px; }
+
+.cs-progress-track {
+  width: 100%;
+  height: 12px;
+  background: #e0d0ff;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.cs-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7c4dff, #b57bee);
+  border-radius: 100px;
+  transition: width 0.05s linear;
+}
+
+/* ── 결과 ─────────────────────────────────────────────────── */
+.cs-result-sub {
+  font-size: 13px;
+  font-weight: 600;
+  color: #7c4dff;
+  margin: 0;
+}
+
+.cs-result-title {
+  font-size: 26px;
+  font-weight: 900;
+  color: #1a1a2e;
+  margin: 0;
+  text-align: center;
+}
+
+.cs-result-img-box {
+  width: 150px;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f9f5ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cs-result-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cs-result-desc-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cs-result-desc-p {
+  background: #f9f5ff;
+  border-left: 4px solid #7c4dff;
+  border-radius: 0 10px 10px 0;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #333;
+  line-height: 1.7;
+  margin: 0;
+}

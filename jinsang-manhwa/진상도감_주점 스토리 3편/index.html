@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콘텐츠 뷰어</title>
+    <style>
+        /* 전체 화면 및 뷰어 가운데 정렬 */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #2c2c2c; /* 웹툰 감상을 위한 어두운 배경 */
+            margin: 0;
+            padding: 20px;
+            font-family: 'Malgun Gothic', sans-serif;
+        }
+
+        /* 뷰어 컨테이너 (모바일 화면 비율과 유사하게 설정) */
+        #viewer-container {
+            max-width: 500px;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* 웹툰 이미지 스타일 */
+        #comic-image {
+            width: 100%;
+            display: block;
+            cursor: pointer; /* 클릭 가능한 요소임을 표시 */
+        }
+
+        /* 하단 네비게이션 영역 */
+        .nav-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 500px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #777;
+            cursor: not-allowed;
+        }
+
+        #page-text {
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="viewer-container">
+        <img id="comic-image" src="" alt="콘텐츠 이미지" onclick="handleImageClick(event)">
+    </div>
+
+    <div class="nav-area">
+        <button id="prev-btn" onclick="changePage(-1)">◀ 이전</button>
+        <span id="page-text">1 / 4</span>
+        <button id="next-btn" onclick="changePage(1)">다음 ▶</button>
+    </div>
+
+    <script>
+        // 1. 사용할 4가지 이미지 파일의 이름 (또는 경로)을 이곳에 입력하세요.
+        // index.html 파일과 같은 폴더에 이미지 파일이 있어야 합니다.
+        const images = [
+            "jinsang_story_3-1.png", 
+            "jinsang_story_3-2.png", 
+            "jinsang_story_3-3.png", 
+            "jinsang_story_3-4.png"  
+        ];
+
+        let currentIndex = 0; // 현재 보여지는 이미지의 순서 (0부터 시작)
+
+        const imgElement = document.getElementById("comic-image");
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
+        const pageText = document.getElementById("page-text");
+
+        // 화면을 업데이트하는 함수
+        function updateViewer() {
+            imgElement.src = images[currentIndex];
+            pageText.innerText = `${currentIndex + 1} / ${images.length}`;
+            
+            // 첫 페이지면 이전 버튼 비활성화, 마지막 페이지면 다음 버튼 비활성화
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === images.length - 1;
+        }
+
+        // 버튼으로 페이지를 넘길 때 사용하는 함수
+        function changePage(step) {
+            currentIndex += step;
+            
+            // 범위를 벗어나지 않도록 방어 코드
+            if (currentIndex < 0) currentIndex = 0;
+            if (currentIndex >= images.length) currentIndex = images.length - 1;
+            
+            updateViewer();
+        }
+
+        // 이미지를 직접 클릭했을 때의 동작을 처리하는 함수
+        function handleImageClick(event) {
+            const clickX = event.offsetX; // 클릭한 X 좌표
+            const width = imgElement.clientWidth; // 이미지의 전체 너비
+
+            if (clickX < width / 2) {
+                // 이미지의 왼쪽 절반을 클릭했을 때 -> 이전 페이지로
+                if (currentIndex > 0) {
+                    changePage(-1);
+                }
+            } else {
+                // 이미지의 오른쪽 절반을 클릭했을 때 -> 다음 페이지로
+                if (currentIndex < images.length - 1) {
+                    changePage(1);
+                }
+            }
+        }
+
+        // 처음 웹페이지가 로드될 때 첫 번째 이미지를 띄움
+        updateViewer();
+    </script>
+</body>
+</html>
