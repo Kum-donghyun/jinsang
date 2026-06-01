@@ -119,7 +119,7 @@ export default function Home() {
               style={{ background: currentItem.accentColor }}
               onClick={(e) => { e.stopPropagation(); navigate(`/interactive/${currentItem.slug}`); }}
             >
-              판결하러 가기
+              직접 체험해보기 →
             </button>
           </div>
         </div>

@@ -59,9 +59,9 @@ export const INTERACTIVE_ITEMS = [
   },
   {
     slug: 'education',
-    name: '교직 진상',
+    name: '학부모 진상',
     emoji: '📚',
-    subtitle: '선생님 vs 학부모, 누가 진상?',
+    subtitle: '오늘 하루, 선생님으로 출근했습니다.',
     description: '학교에서 벌어지는 교사와 학부모, 학생 간의 갈등. 여러분의 공정한 판결을 내려주세요!',
     bgGradient: 'linear-gradient(135deg, #F3E5F5 0%, #F8F0FF 100%)',
     accentColor: '#8E44AD',
